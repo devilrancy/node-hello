@@ -9,12 +9,15 @@ before_install:
 script:
   - 'make test'
   - 'make image'
+  - 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+  - 'make push-image'
+  - 'make deploy'
 
 # To have `DOCKER_USERNAME` and `DOCKER_PASSWORD`
 # use `travis env set DOCKER_USERNAME ...`
 # use `travis env set DOCKER_PASSWORD ...`
-deploy:
-  provider: script
-  script: ./deploy.sh
-  on:
-    branch: master
+# deploy:
+#   provider: script
+#   script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && make push-image
+#   on:
+#     branch: master
