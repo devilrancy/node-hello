@@ -1,6 +1,6 @@
 FROM node:4.2
-ENV VERSION=1.0.0
+ENV VERSION=1.0.1
 COPY . /src
 RUN cd /src && npm install
-EXPOSE 4000
+EXPOSE 8000
 CMD ["node", "/src/app.js"]
