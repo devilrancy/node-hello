@@ -14,6 +14,6 @@ push-image:
 
 deploy:
 	./terraform init application/
-	./terraform apply application/
+	./terraform apply application/ -auto-approve
 
 .PHONY: image push-image test
