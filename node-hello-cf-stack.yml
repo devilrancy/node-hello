@@ -26,16 +26,16 @@ Parameters:
     Default: default
   EcsPort:
     Type: String
-    Description: Optional - Security Group port to open on ECS instances - defaults to port 80
-    Default: '80'
+    Description: Optional - Security Group port to open on ECS instances - defaults to port 8000
+    Default: '8000'
   ElbPort:
     Type: String
-    Description: Optional - Security Group port to open on ELB - port 80 will be open by default
-    Default: '80'
+    Description: Optional - Security Group port to open on ELB - port 8000 will be open by default
+    Default: '8000'
   ElbHealthCheckTarget:
     Type: String
-    Description: Optional - Health Check Target for ELB - defaults to HTTP:80/
-    Default: HTTP:80/
+    Description: Optional - Health Check Target for ELB - defaults to HTTP:8000/
+    Default: HTTP:8000/
   TargetGroupName:
     Type: String
     Description: The target group name
