@@ -3,7 +3,8 @@
 set -o errexit
 
 main() {
-  setup_dependencies
+  setup_docker_dependencies
+  setup_terraform_dependencies
   update_docker_configuration
 
   echo "SUCCESS:
@@ -11,14 +12,25 @@ main() {
   "
 }
 
-setup_dependencies() {
+setup_docker_dependencies() {
   echo "INFO:
-  Setting up dependencies.
+  Setting up Docker dependencies.
   "
 
   sudo apt update -y
   sudo apt install --only-upgrade docker-ce -y
   docker info
+}
+
+setup_terraform_dependencies() {
+  echo "INFO:
+  Setting up Terraform dependencies.
+  "
+  
+  sudo apt install unzip -y
+  wget https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd64.zip
+  unzip terraform_0.12.2_linux_amd64.zip
+  ./terraform version
 }
 
 update_docker_configuration() {
