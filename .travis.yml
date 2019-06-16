@@ -14,11 +14,7 @@ script:
 # use `travis env set DOCKER_USERNAME ...`
 # use `travis env set DOCKER_PASSWORD ...`
 deploy:
-  - provider: script
-    script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && make push-image
-    on:
-      branch: master
-  - provider: script
-    script: make deploy
-    on:
-      branch: master
+  provider: script
+  script: ./deploy.sh
+  on:
+    branch: master
