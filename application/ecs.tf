@@ -5,9 +5,9 @@ resource "aws_ecs_cluster" "main" {
 }
 
 data "template_file" "node_hello_app" {
-  template = "${file("terraform/templates/ecs/node_hello_app.json.tpl")}"
+  template = "${file("application/templates/ecs/node_hello_app.json.tpl")}"
 
-  vars {
+  vars = {
     app_image      = "${var.app_image}"
     fargate_cpu    = "${var.fargate_cpu}"
     fargate_memory = "${var.fargate_memory}"
@@ -35,7 +35,7 @@ resource "aws_ecs_service" "main" {
 
   network_configuration {
     security_groups  = ["${aws_security_group.ecs_tasks.id}"]
-    subnets          = ["${aws_subnet.private.*.id}"]
+    subnets          = "${aws_subnet.private.*.id}"
     assign_public_ip = true
   }
 
