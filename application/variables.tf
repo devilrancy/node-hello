@@ -26,7 +26,7 @@ variable "app_count" {
 }
 
 variable "ecs_autoscale_role" {
-  description = "Role arn for the ecsAutocaleRole"
+  description = "Role arn for the ecsAutoscaleRole"
   default     = "arn:aws:iam::401518232566:role/ecsAutoscaleRole"
 }
 
