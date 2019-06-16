@@ -5,7 +5,7 @@ resource "aws_cloudwatch_log_group" "cb_log_group" {
   name              = "/ecs/hello-app"
   retention_in_days = 30
 
-  tags {
+  tags = {
     Name = "node-hello-log-group"
   }
 }
