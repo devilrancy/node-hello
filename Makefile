@@ -12,5 +12,8 @@ push-image:
 	docker push ${IMAGE}:${VERSION}
 	docker push ${IMAGE}:latest
 
+deploy:
+	./terraform init application/
+	./terraform apply application/
 
 .PHONY: image push-image test
